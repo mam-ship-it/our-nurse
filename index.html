@@ -75,9 +75,66 @@ ol,ul{margin:8px 0;padding-inline-start:22px;line-height:1.9}
 .sheet .rt td,.sheet .rt th{text-align:start!important;vertical-align:top}
 .sheet table{margin-bottom:6px}.sheet th{background:#e6f2f0}
 @media print{nav,.topbar,#reg{display:none!important}#view>*:not(.printable){display:none!important}#shell{display:block}main{padding:0;max-width:none}body{background:#fff}.printable{border:0!important;margin:0!important;padding:0!important}}
+
+/* ===== futuristic skin ===== */
+html{background:var(--bg)}body{background:transparent}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#reg,#shell{position:relative;z-index:1}
+.topbar{background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(12px)}
+.card,.tabs{backdrop-filter:blur(10px)}
+.card{background:color-mix(in srgb,var(--card) 90%,transparent);box-shadow:0 8px 28px -12px #0b3b3633;transition:transform .25s,box-shadow .25s,border-color .25s}
+.grid .card:hover,a.tile:hover .card{transform:translateY(-3px);border-color:var(--brand);box-shadow:0 14px 34px -14px #0f766e66}
+nav{background:linear-gradient(185deg,#04141b,#0b3b36 70%,#0d5a50)}
+nav a{border-inline-start:3px solid transparent;transition:background .2s}
+nav a.on{background:linear-gradient(90deg,#2ee6c52b,transparent);border-inline-start-color:#2ee6c5;color:#fff}
+.btn{background:linear-gradient(135deg,#0f9f87,#14b8a6);box-shadow:0 8px 20px -10px #0f9f87;transition:transform .15s,box-shadow .2s}.btn:hover{transform:translateY(-1px);filter:none;box-shadow:0 12px 26px -10px #14b8a6}
+.hero,.ahead{background:linear-gradient(120deg,#04141b,#0b5b52,#13907f,#0b3b36);background-size:300% 300%;animation:shift 14s ease infinite;box-shadow:0 18px 40px -20px #0b3b36}
+@keyframes shift{50%{background-position:100% 50%}}
+.tabs button.on,.chips button.on{background:linear-gradient(135deg,#0f9f87,#14b8a6)}
+.ph .ic{background:linear-gradient(135deg,var(--soft),#2ee6c533);box-shadow:inset 0 0 0 1px #2ee6c533}
+/* ===== welcome screen ===== */
+#welcome{position:fixed;inset:0;z-index:100;overflow:auto;background:radial-gradient(120% 90% at 50% 0%,#0a2e3a 0%,#04121a 55%,#020a10 100%);color:#e8fbf7;display:grid;place-items:center;padding:56px 16px 24px}
+#welcome canvas{position:absolute;inset:0;width:100%;height:100%}
+.aur{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;animation:flo 16s ease-in-out infinite alternate}
+.a1{width:46vmax;height:46vmax;background:#12d6b8;top:-18vmax;inset-inline-start:-10vmax}
+.a2{width:40vmax;height:40vmax;background:#2563eb;bottom:-16vmax;inset-inline-end:-8vmax;animation-delay:-5s;opacity:.4}
+.a3{width:30vmax;height:30vmax;background:#9b5de5;top:30%;inset-inline-start:45%;animation-delay:-9s;opacity:.26}
+@keyframes flo{to{transform:translate(6vmax,4vmax) scale(1.15)}}
+.grid3d{position:absolute;bottom:-12%;left:-50%;width:200%;height:55%;background-image:linear-gradient(#2ee6c533 1px,transparent 1px),linear-gradient(90deg,#2ee6c533 1px,transparent 1px);background-size:64px 64px;transform:perspective(520px) rotateX(63deg);animation:gridmove 6s linear infinite;-webkit-mask-image:linear-gradient(to top,#000 15%,transparent);mask-image:linear-gradient(to top,#000 15%,transparent);pointer-events:none}
+@keyframes gridmove{to{background-position:0 64px}}
+.ecg{position:absolute;left:0;right:0;top:46%;width:100%;height:120px;transform:translateY(-50%);opacity:.45;pointer-events:none}
+.ecg path{fill:none;stroke:#2ee6c5;stroke-width:2.5;stroke-dasharray:1500;stroke-dashoffset:1500;animation:ecg 5.5s linear infinite;filter:drop-shadow(0 0 6px #2ee6c5)}
+@keyframes ecg{to{stroke-dashoffset:-1500}}
+.wchip{position:absolute;top:16px;inset-inline-end:16px;z-index:3;background:#ffffff14;border:1px solid #ffffff33;color:#fff;border-radius:20px;padding:8px 16px;backdrop-filter:blur(8px)}
+.wbox{position:relative;z-index:2;width:min(980px,100%);text-align:center}
+.lring{width:104px;height:104px;margin:0 auto 14px;border-radius:50%;padding:4px;background:conic-gradient(#2ee6c5,#3b82f6,#9b5de5,#2ee6c5);animation:spin 8s linear infinite;box-shadow:0 0 40px #2ee6c577}
+.lring img{width:100%;height:100%;border-radius:50%;display:block;border:3px solid #04121a;animation:spin 8s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.kick{letter-spacing:.12em;font-size:12px;color:#7ff3de;margin-bottom:8px}
+.wt{font-size:clamp(30px,6vw,56px);margin:0 0 8px;background:linear-gradient(90deg,#fff,#7ff3de,#8ab4ff,#fff);background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:250% center}}
+.ws{margin:0 auto 30px;max-width:640px;color:#b6d5d0;font-size:clamp(14px,2.2vw,18px)}
+.wcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.wc{position:relative;text-align:start;padding:24px 22px 52px;border-radius:20px;background:linear-gradient(160deg,#ffffff14,#ffffff06);border:1px solid #ffffff26;color:#fff;backdrop-filter:blur(14px);overflow:hidden;display:flex;flex-direction:column;gap:8px;transition:transform .3s,border-color .3s,box-shadow .3s;opacity:0;animation:up .8s cubic-bezier(.2,.8,.2,1) forwards}
+.wc:nth-child(2){animation-delay:.12s}.wc:nth-child(3){animation-delay:.24s}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.wc::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x,50%) var(--y,0),#2ee6c52e,transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.wc:hover{transform:translateY(-6px);border-color:#2ee6c5aa;box-shadow:0 20px 50px -18px #2ee6c588}.wc:hover::before{opacity:1}
+.wi{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#2ee6c533,#3b82f633);color:#7ff3de;box-shadow:inset 0 0 0 1px #2ee6c544,0 0 24px #2ee6c533}
+.wi svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.wc[data-go=staff] .wi{color:#8ab4ff;box-shadow:inset 0 0 0 1px #3b82f655,0 0 24px #3b82f633}
+.wc[data-go=admin] .wi{color:#c9a6ff;box-shadow:inset 0 0 0 1px #9b5de555,0 0 24px #9b5de533}
+.wc b{font-size:20px}.wd{font-size:14px;color:#b6d5d0;line-height:1.6}
+.wc em{font-style:normal;font-size:12px;color:#7ff3de;background:#2ee6c51a;border-radius:20px;padding:3px 10px;align-self:flex-start}
+.wa{position:absolute;bottom:16px;inset-inline-end:20px;font-style:normal;font-size:22px;color:#2ee6c5;transition:transform .3s}
+.wc:hover .wa{transform:translateX(-6px)}[dir=ltr] .wc:hover .wa{transform:translateX(6px)}
+.wfoot{margin-top:26px;color:#7fa7a1;font-size:13px}
+@media print{#fx,#welcome{display:none!important}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
 </style>
 </head>
 <body>
+<canvas id="fx"></canvas>
 <div id="reg" class="hide">
   <img id="rlogo" width="90" height="90" style="border-radius:50%;display:block;margin:0 auto 10px" alt="">
   <h1 id="rt" style="text-align:center;margin:0"></h1>
@@ -87,6 +144,7 @@ ol,ul{margin:8px 0;padding-inline-start:22px;line-height:1.9}
     <label id="l_rp"></label><input id="rp" type="tel" dir="ltr">
     <label id="l_rc"></label><input id="rc">
     <button class="btn full" id="rB"></button><div id="rM"></div>
+    <p style="text-align:center;margin:14px 0 0"><a href="#admin" id="radmin" style="font-size:14px;color:var(--mute)">🔐 دخول الأدمن · Admin sign-in</a></p>
   </div>
 </div>
 <div id="shell" class="hide">
@@ -101,6 +159,9 @@ ol,ul{margin:8px 0;padding-inline-start:22px;line-height:1.9}
     <div id="view"></div>
   </main>
 </div>
+<div id="welcome"><canvas id="wfx"></canvas><div class="aur a1"></div><div class="aur a2"></div><div class="aur a3"></div><div class="grid3d"></div>
+<svg class="ecg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60H260l25 0 15-38 20 80 18-62 12 20H640l25 0 15-38 20 80 18-62 12 20H1200"/></svg>
+<button class="wchip" id="wlang"></button><div class="wbox" id="wcontent"></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 const SUPABASE_URL="https://vsmuibqjqjngmnmoncwj.supabase.co";
@@ -369,14 +430,14 @@ function applyUI(){
 }
 function nav(cur){
   $("nav").innerHTML=`<div class="brand"><img src="${LOGO}" width="44" height="44" style="border-radius:50%" alt=""><div><b>${t("app")}</b><small>${esc(profile?profile.full_name:t("sub"))}</small></div></div>`+
-  PAGES.map(([k,i])=>`<a href="#${k}" class="${k===cur?"on":""}">${i} ${t(k)}</a>`).join("")+`<a href="#" id="editp" style="opacity:.8;font-size:13px">${t("editp")}</a>`;
-  $("editp").onclick=e=>{e.preventDefault();showReg()};
+  PAGES.map(([k,i])=>`<a href="#${k}" class="${k===cur?"on":""}">${i} ${t(k)}</a>`).join("")+`<a href="#admin" class="${cur==="admin"?"on":""}">🔐 ${X("لوحة الأدمن","Admin")}</a>`+`<a href="#" id="editp" style="opacity:.8;font-size:13px">${t("editp")}</a>`+`<a href="#" id="gowel" style="opacity:.8;font-size:13px">⌂ ${X("الشاشة الرئيسية","Start screen")}</a>`;
+  $("editp").onclick=e=>{e.preventDefault();showReg()};$("gowel").onclick=e=>{e.preventDefault();showWelcome()};
 }
 const head=(k,ic)=>`<div class="ph"><div class="ic">${ic}</div><div><h2>${t(k)}</h2><p>${t("ph_"+k)}</p></div></div>`;
 const tabsHTML=(arr,cur)=>`<div class="tabs">${arr.map((x,i)=>`<button data-i="${i}" class="${i===cur?"on":""}">${t(x)}</button>`).join("")}</div>`;
 function bindTabs(v,fn){v.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>fn(+b.dataset.i))}
 function route(){
-  const k=(location.hash||"#home").slice(1);const ok=PAGES.some(p=>p[0]===k);
+  const k=(location.hash||"#home").slice(1);if(k==="admin"){nav("admin");admin($("view"));window.scrollTo(0,0);return}const ok=PAGES.some(p=>p[0]===k);
   nav(ok?k:"home");({home,dist,train,cases,tools,quiz,ai,eval:evalP,help}[ok?k:"home"])($("view"));window.scrollTo(0,0);
 }
 window.onhashchange=route;
@@ -489,14 +550,34 @@ function run(v,set,cat,cnt){let i=0,s=0;
     v.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{const j=+b.dataset.j;if(j===q[2])s++;v.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(+x.dataset.j===q[2])x.classList.add("right")});if(j!==q[2])b.classList.add("wrong");setTimeout(()=>{i++;show()},900)});};
   show();
 }
+let aiBusy=false;
+const KB=[
+[/cpr|إنعاش|انعاش/i,"الإنعاش القلبي الرئوي للبالغ (حسب إرشادات AHA/ERC):\n1) تأكد من أمان المكان واستجابة المريض، واستدعِ فريق الطوارئ وأحضر جهاز الصدمات AED.\n2) افحص التنفس والنبض في أقل من 10 ثوانٍ.\n3) ابدأ الضغطات في منتصف الصدر (النصف السفلي من عظمة القص): العمق 5–6 سم، المعدل 100–120 ضغطة/دقيقة، مع ترك الصدر يرتد كاملًا وتقليل التوقف.\n4) 30 ضغطة : نفَسان بالأمبو باج. وللطفل والرضيع مع منقذَين تكون النسبة 15:2 والعمق نحو ثلث قطر الصدر (الرضيع ≈ 4 سم، الطفل ≈ 5 سم).\n5) ركّب جهاز AED فور توفره واتبع تعليماته، وبدّل الشخص الذي يضغط كل دقيقتين.\nاتبع دائمًا بروتوكول الإنعاش في مستشفاك.","CPR for adults (AHA/ERC guidance):\n1) Check scene safety and responsiveness; call the emergency team and bring an AED.\n2) Check breathing and pulse for no more than 10 seconds.\n3) Start compressions at the centre of the chest (lower half of the sternum): depth 5–6 cm, rate 100–120/min, allow full recoil, minimise interruptions.\n4) 30 compressions : 2 breaths with a bag-mask. For a child or infant with two rescuers use 15:2, depth about one third of the chest (infant ≈ 4 cm, child ≈ 5 cm).\n5) Attach the AED as soon as it arrives and follow its prompts; swap the person doing compressions every 2 minutes.\nAlways follow your hospital's resuscitation protocol."],
+[/infusion|drip|drop factor|gtt|iv rate|تسريب|قطرة|قطره|محلول/i,"معدل التسريب الوريدي:\nمل/ساعة = الحجم الكلي (مل) ÷ الزمن (ساعة).\nقطرة/دقيقة = (الحجم بالمل × معامل القطرة قطرة/مل) ÷ الزمن بالدقائق.\nمثال: 500 مل خلال 4 ساعات بطقم 20 قطرة/مل: 500 × 20 ÷ 240 = 41.7 ≈ 42 قطرة/دقيقة (أي 125 مل/ساعة).\nأطقم الماكرو 10 أو 15 أو 20 قطرة/مل، وطقم الميكرو 60 قطرة/مل (قطرة/دقيقة = مل/ساعة).","IV infusion rate:\nmL/hour = total volume (mL) ÷ time (hours).\nDrops/min = (volume in mL × drop factor in gtt/mL) ÷ time in minutes.\nExample: 500 mL over 4 hours with a 20 gtt/mL set: 500 × 20 ÷ 240 = 41.7 ≈ 42 gtt/min (that is 125 mL/h).\nMacro sets are 10, 15 or 20 gtt/mL; a micro set is 60 gtt/mL (gtt/min = mL/h)."],
+[/dose|mg\/kg|جرعة|جرعه/i,"حساب الجرعة حسب الوزن:\nالجرعة اليومية = الوزن (كجم) × الجرعة المطلوبة (مجم/كجم/يوم)، ثم اقسمها على عدد الجرعات. وإذا كان الأمر مجم/كجم/جرعة اضرب مباشرة.\nلتحويلها لحجم: الحجم (مل) = الجرعة (مجم) ÷ التركيز (مجم/مل).\nمثال: طفل 10 كجم، الأمر 15 مجم/كجم/جرعة = 150 مجم؛ الشراب 120 مجم/5 مل (= 24 مجم/مل) ← 150 ÷ 24 = 6.25 مل.\nراجع دائمًا الحد الأقصى الآمن للجرعة والحقوق الخمسة، واطلب مراجعة ممرضة ثانية للأدوية عالية الخطورة.","Weight-based dose:\nDaily dose = weight (kg) × ordered dose (mg/kg/day), then divide by the number of doses. If the order is mg/kg/dose, multiply directly.\nTo convert to volume: volume (mL) = dose (mg) ÷ concentration (mg/mL).\nExample: child 10 kg, order 15 mg/kg/dose = 150 mg; syrup 120 mg/5 mL (= 24 mg/mL) → 150 ÷ 24 = 6.25 mL.\nAlways check the maximum safe dose and the five rights, and have a second nurse verify high-alert drugs."],
+[/pressure ulcer|bed ?sore|decubitus|قرح|فراش/i,"الوقاية من قرح الفراش:\n• قيّم الخطورة بمقياس برادن عند الدخول وبشكل دوري.\n• افحص الجلد يوميًا خاصة النتوءات العظمية (العجز، الكعبين، الوركين).\n• غيّر وضع المريض كل ساعتين على الأقل (وضع جانبي 30°) وأبقِ رأس السرير أقل من 30° ما لم يمنع ذلك مانع.\n• استخدم مرتبة موزعة للضغط ووسائد لرفع الكعبين.\n• حافظ على الجلد نظيفًا وجافًا وعالج الرطوبة بكريم حاجز.\n• لا تدلّك المناطق الحمراء، وتجنب الاحتكاك والسحب عند التحريك.\n• اهتم بالتغذية والسوائل، ووثّق وثقّف المريض وأسرته.","Preventing pressure ulcers:\n• Assess risk with the Braden scale on admission and regularly.\n• Inspect the skin daily, especially bony prominences (sacrum, heels, hips).\n• Reposition at least every 2 hours (30° side-lying) and keep the head of bed below 30° unless contraindicated.\n• Use a pressure-redistributing mattress and offload the heels.\n• Keep skin clean and dry and manage moisture with a barrier cream.\n• Do not massage reddened areas; avoid friction and shear when moving the patient.\n• Ensure nutrition and hydration, document, and educate the patient and family."],
+[/needle|sharps|needlestick|وخز|إبرة|ابرة/i,"الوخز بإبرة ملوثة:\n1) لا تعصر الجرح ولا تفركه.\n2) اغسله فورًا بالماء الجاري والصابون عدة دقائق، واغسل العين أو الأغشية المخاطية بالماء أو المحلول الملحي.\n3) أبلغ المشرف ومكافحة العدوى فورًا واملأ نموذج الحادث.\n4) اطلب تقييمًا طبيًا لخطر التعرض لفيروسات HIV وHBV وHCV وابدأ العلاج الوقائي بعد التعرض في أسرع وقت ممكن (لـHIV خلال 72 ساعة على الأكثر) حسب البروتوكول.\n5) تُجرى تحاليل أساسية ومتابعة، ووثّق بيانات المريض المصدر.","After a contaminated needle-stick:\n1) Do not squeeze or scrub the wound.\n2) Wash it immediately with running water and soap for several minutes; rinse eyes or mucous membranes with water or saline.\n3) Report to your supervisor and infection control right away and complete the incident form.\n4) Get a medical assessment of HIV, HBV and HCV exposure risk and start post-exposure prophylaxis as soon as possible (for HIV within 72 hours at most) according to protocol.\n5) Baseline and follow-up blood tests are done; document the source patient's details."],
+[/postpartum|pph|hemorrhage|haemorrhage|نزيف|الولادة/i,"نزيف ما بعد الولادة (فقد ≥ 500 مل ولادة طبيعية أو ≥ 1000 مل قيصرية أو علامات عدم استقرار):\n1) اطلب المساعدة وفعّل بروتوكول النزيف وسجّل الوقت.\n2) دلّك الرحم (القاع) بقوة حتى يتقلص، وأفرغ المثانة.\n3) أعطِ مقبضات الرحم (مثل الأوكسيتوسين) حسب الأمر الطبي وبروتوكول المستشفى.\n4) ثبّت خطّي وريد بقطر كبير، وأرسل تحاليل الدم (صورة دم وتصالب)، وسوائل وريدية وأكسجين حسب الأمر مع التدفئة.\n5) راقب الضغط والنبض والنزف وقوام الرحم كل 5–15 دقيقة، وسجّل الداخل والخارج (قسطرة).\n6) ابحث عن بقايا مشيمة أو تمزقات، وأبلغ الطبيب فورًا ووثّق كل شيء.","Postpartum hemorrhage (loss ≥ 500 mL vaginal, ≥ 1000 mL cesarean, or signs of instability):\n1) Call for help, activate the PPH protocol and note the time.\n2) Massage the fundus firmly until it contracts and empty the bladder.\n3) Give uterotonics (e.g. oxytocin) as ordered and per hospital protocol.\n4) Two large-bore IV lines, send bloods (CBC, group and cross-match), IV fluids and oxygen as ordered, keep the patient warm.\n5) Monitor BP, pulse, bleeding and uterine tone every 5–15 minutes; strict intake/output (Foley).\n6) Look for retained placenta or lacerations, escalate to the doctor immediately and document everything."]];
+function offlineAnswer(q){const k=KB.find(e=>e[0].test(q));return k?X(k[1],k[2]):X("أستطيع الإجابة مؤقتًا عن: الإنعاش القلبي الرئوي، حساب الجرعات بالوزن، معدل التسريب الوريدي، الوقاية من قرح الفراش، نزيف ما بعد الولادة، الوخز بإبرة ملوثة. جرّب أحد هذه المواضيع.","Right now I can answer about: CPR, weight-based doses, IV infusion rate, pressure-ulcer prevention, postpartum hemorrhage and needle-stick injuries. Please try one of these topics.")}
 let chat=[];
 function ai(v){
   const S=X(["اشرح لي خطوات الإنعاش القلبي الرئوي CPR","كيف أحسب جرعة دواء بالوزن لطفل؟","خطوات الوقاية من قرح الفراش","ماذا أفعل في نزيف ما بعد الولادة؟","كيف أحسب معدل التسريب الوريدي؟","ماذا أفعل عند الوخز بإبرة ملوثة؟"],["Explain the steps of CPR (cardiopulmonary resuscitation)","How do I calculate a weight-based drug dose for a child?","Steps to prevent pressure ulcers","What should I do in postpartum hemorrhage?","How do I calculate the IV infusion rate?","What should I do after a contaminated needle-stick?"]);
   v.innerHTML=`<div class="ahead"><h2>✨ ${t("ai")}</h2><p>${t("ph_ai")}</p></div><div class="chat" id="ch"><div class="bub">${X("أهلاً بك. اسألني عن أي إجراء تمريضي، أو حساب جرعة، أو بروتوكول طوارئ، وسأشرحه لك خطوة بخطوة.","Welcome. Ask me about any nursing procedure, dose calculation or emergency protocol and I will explain it step by step.")}</div>${chat.map(m=>`<div class="bub ${m.me?"me":""}">${esc(m.t)}</div>`).join("")}</div>
   <div class="chips" style="margin-bottom:12px">${S.map(s=>`<button class="sg">${s}</button>`).join("")}</div><div class="row" style="flex-wrap:nowrap"><input id="q" placeholder="${t("typeq")}"><button class="btn" id="ask" style="flex:0 0 auto">${t("ask")}</button></div>`;
-  const send=async q=>{if(!q)return;chat.push({me:1,t:q});chat.push({t:"..."});ai(v);
-    const {data,error}=await sb.functions.invoke("nursing-assistant",{body:{question:q,lang}});chat.pop();
-    chat.push({t:error?X("تعذر الاتصال بالمساعد. تأكد من نشر الدالة nursing-assistant في Supabase.","Could not reach the assistant. Make sure the nursing-assistant function is deployed in Supabase."):data.answer});ai(v)};
+  const send=async q=>{if(!q||aiBusy)return;aiBusy=true;chat.push({me:1,t:q});chat.push({t:"..."});ai(v);
+    const hist=chat.filter(m=>m.t!=="...").slice(-9,-1).map(m=>({role:m.me?"user":"assistant",content:m.t}));let ans;
+    const ctrl=new AbortController(),tm=setTimeout(()=>ctrl.abort(),60000);
+    try{
+      const r=await fetch(SUPABASE_URL+"/functions/v1/nursing-assistant",{method:"POST",signal:ctrl.signal,headers:{"Content-Type":"application/json",apikey:SUPABASE_ANON_KEY,Authorization:"Bearer "+SUPABASE_ANON_KEY},body:JSON.stringify({question:q,lang,history:hist})});
+      const txt=await r.text();let j=null;try{j=JSON.parse(txt)}catch(_){}
+      if(!r.ok)throw new Error("HTTP "+r.status+": "+((j&&(j.error||j.message||j.msg))||txt.slice(0,150)));
+      ans=j&&(j.answer||j.text);
+      if(!ans)throw new Error("unexpected response: "+txt.slice(0,150));
+    }catch(err){
+      console.error("nursing-assistant:",err);const st=err&&err.name==="AbortError"?"timeout":(err&&err.message)||String(err);
+      ans=X("تعذر الاتصال بالمساعد السحابي ("+st+"). هذه إجابة من قاعدة المعرفة المدمجة:\n\n","Could not reach the cloud assistant ("+st+"). Here is an answer from the built-in knowledge base:\n\n")+offlineAnswer(q);
+    }finally{clearTimeout(tm)}
+    chat.pop();chat.push({t:ans});aiBusy=false;ai(v)};
   v.querySelectorAll(".sg").forEach(b=>b.onclick=()=>send(b.textContent));$("ask").onclick=()=>send($("q").value.trim());$("q").onkeydown=e=>{if(e.key==="Enter")send($("q").value.trim())};
 }
 function evalP(v){
@@ -664,10 +745,117 @@ function showReport(v,rep,from,to){
   $("rprint").onclick=()=>window.print();$("rback").onclick=()=>{helpTab=3;stTab=2;help(v)};
 }
 
-function showReg(){$("shell").classList.add("hide");$("reg").classList.remove("hide");$("rM").innerHTML="";$("rn").value=profile?profile.full_name:"";$("rp").value=profile&&profile.phone||"";$("rc").value=profile&&profile.student_code||""}
-function enter(){$("reg").classList.add("hide");$("shell").classList.remove("hide");applyUI();route();
+
+/* =================== ADMIN DASHBOARD =================== */
+let admTab=0;
+const admErr=e=>errBox(e)+(/could not find|does not exist|PGRST202|schema cache/i.test(e.message||"")?`<div class="msg err">${X("شغّل ملف admin_dashboard.sql في Supabase ← SQL Editor أولًا.","Run admin_dashboard.sql in Supabase → SQL Editor first.")}</div>`:"");
+const admSort=a=>a.slice().sort((x,y)=>String(y.created_at||"").localeCompare(String(x.created_at||"")));
+function admCSV(name,rows){ if(!rows.length)return; const cols=[...new Set(rows.flatMap(r=>Object.keys(r)))];
+  const cell=v=>{v=v==null?"":typeof v==="object"?JSON.stringify(v):String(v);return '"'+v.replace(/"/g,'""')+'"'};
+  const csv="\ufeff"+cols.join(",")+"\n"+rows.map(r=>cols.map(c=>cell(r[c])).join(",")).join("\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=name+".csv";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+function admin(v){
+  if(!staff||staff.role!=="head"){
+    v.innerHTML=`<div class="card" style="max-width:420px;margin:30px auto"><h2>🔐 ${X("دخول الأدمن","Admin sign-in")}</h2><p style="color:var(--mute);font-size:14px">${X("أدخل كود الأدمن (رئيس القسم) لفتح لوحة التحكم.","Enter the admin (Head of Department) access code to open the dashboard.")}</p><label>${X("كود الدخول","Access code")}</label><input id="adc" type="password" dir="ltr" autocomplete="off"><button class="btn full" id="adgo">${X("دخول","Sign in")}</button><div id="adm"></div></div>`;
+    const go=async()=>{const code=$("adc").value.trim();
+      if(!code){$("adm").innerHTML=`<div class="msg err">${X("أدخل كود الدخول.","Enter the access code.")}</div>`;return}
+      $("adgo").disabled=true;
+      try{const role=await rpc("staff_role",{p_code:code});if(!role)throw new Error("invalid code");
+        if(role!=="head")throw new Error(X("هذا كود مشرف وليس كود أدمن. المشرفون يدخلون من المساعدة ← منطقة المشرفين.","This is a supervisor code, not an admin code. Supervisors sign in from Help → Supervisor area."));
+        staff={name:store.get("staff_name")||"Admin",code,role};ss.set("staff",JSON.stringify(staff));admin(v)}
+      catch(e){$("adm").innerHTML=errBox(e);$("adgo").disabled=false}};
+    $("adgo").onclick=go;$("adc").onkeydown=e=>{if(e.key==="Enter")go()};return}
+  const labels=[X("نظرة عامة","Overview"),X("الطلاب","Students"),X("الاختبارات","Quizzes"),X("التقييمات","Evaluations"),X("الرسائل","Messages"),X("الزيارات والتقرير","Visits & report")];
+  v.innerHTML=`<div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span>🔐 <b>${X("لوحة الأدمن","Admin dashboard")}</b></span><button class="chip" id="adout">${X("خروج","Sign out")}</button></div><div class="tabs">${labels.map((l,i)=>`<button data-i="${i}" class="${i===admTab?"on":""}">${l}</button>`).join("")}</div><div id="adb"></div>`;
+  $("adout").onclick=()=>{staff=null;ss.set("staff","");admin(v)};
+  bindTabs(v,i=>{admTab=i;admin(v)});
+  [admOverview,admStudents,admQuizzes,admEvals,stMsgs,stReport][admTab]($("adb"),v);
+}
+async function admOverview(box){
+  box.innerHTML=`<div class="msg ok">${X("جارٍ التحميل...","Loading...")}</div>`;
+  let s;try{s=await rpc("admin_stats",{p_code:staff.code})}catch(e){box.innerHTML=admErr(e);if(!staff)setTimeout(()=>admin($("view")),900);return}
+  const card=(n,l,c)=>`<div class="card" style="text-align:center"><div style="font-size:32px;font-weight:800;color:${c||"#0b7a6e"}">${n}</div><small style="color:var(--mute)">${l}</small></div>`;
+  const bar=(l,n,max)=>`<div style="display:flex;align-items:center;gap:8px;margin:6px 0"><span style="width:120px;font-size:13px">${esc(l)}</span><div style="flex:1;background:#e5eceb;border-radius:6px;height:14px"><div style="width:${max?Math.round(n/max*100):0}%;background:#0f9f87;height:14px;border-radius:6px"></div></div><b style="width:34px;text-align:end">${n}</b></div>`;
+  const dep=Object.entries(s.evals_by_dept||{}).sort((a,b)=>b[1]-a[1]),dm=Math.max(1,...dep.map(x=>x[1])),qb=s.quiz_bands||{},qm=Math.max(1,qb.lt50||0,qb.b50_70||0,qb.b70_85||0,qb.ge85||0);
+  box.innerHTML=`<div class="grid">${card(s.students,X("طالب مسجّل","Registered students"))}${card(s.quiz_count,X("محاولة اختبار","Quiz attempts"))}${card(s.quiz_avg+"%",X("متوسط الاختبارات","Average quiz score"))}${card(s.evals,X("تقييم","Evaluations"))}${card(s.msgs_open,X("رسالة تنتظر الرد","Messages awaiting reply"),"#c77700")}${card(s.msgs_done,X("رسالة تم الرد عليها","Replied messages"))}</div>
+  <div class="grid"><div class="card"><h3>${X("توزيع درجات الاختبارات","Quiz score distribution")}</h3>${bar("< 50%",qb.lt50||0,qm)}${bar("50–69%",qb.b50_70||0,qm)}${bar("70–84%",qb.b70_85||0,qm)}${bar("≥ 85%",qb.ge85||0,qm)}</div>
+  <div class="card"><h3>${X("التقييمات حسب القسم","Evaluations by department")}</h3>${dep.map(([k,n])=>bar(k,n,dm)).join("")||`<small style="color:var(--mute)">${X("لا توجد تقييمات بعد.","No evaluations yet.")}</small>`}</div></div>
+  <button class="chip" id="adrf">⟳ ${X("تحديث","Refresh")}</button>`;
+  $("adrf").onclick=()=>admOverview(box);
+}
+async function admList(box,fn,file,cols){
+  box.innerHTML=`<div class="msg ok">${X("جارٍ التحميل...","Loading...")}</div>`;
+  let rows;try{rows=admSort(await rpc(fn,{p_code:staff.code}))}catch(e){box.innerHTML=admErr(e);if(!staff)setTimeout(()=>admin($("view")),900);return}
+  let q="";
+  const draw=()=>{const L=rows.filter(r=>!q||JSON.stringify(r).toLowerCase().includes(q));
+    box.innerHTML=`<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px"><input id="adq" placeholder="${X("بحث...","Search...")}" value="${esc(q)}" style="flex:1;min-width:160px"><b>${L.length}/${rows.length}</b><button class="chip" id="adcsv">⬇ CSV</button><button class="chip" id="adrf">⟳</button></div>
+    <div class="card" style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:14px"><thead><tr>${cols.map(c=>`<th style="text-align:start;padding:6px 8px;border-bottom:2px solid #cfe0dd;white-space:nowrap">${c[0]}</th>`).join("")}</tr></thead><tbody>${L.map(r=>`<tr>${cols.map(c=>`<td style="padding:6px 8px;border-bottom:1px solid #e5eceb;vertical-align:top">${c[1](r)}</td>`).join("")}</tr>`).join("")||`<tr><td colspan="${cols.length}" style="text-align:center;color:var(--mute);padding:16px">${X("لا توجد بيانات.","No data.")}</td></tr>`}</tbody></table></div>`;
+    $("adq").oninput=e=>{q=e.target.value.toLowerCase();const p=e.target.selectionStart;draw();const n=$("adq");n.focus();n.setSelectionRange(p,p)};
+    $("adcsv").onclick=()=>admCSV(file,L);$("adrf").onclick=()=>admList(box,fn,file,cols)};
+  draw();
+}
+const admDate=r=>r.created_at?fmtDT(r.created_at):"";
+const admStudents=box=>admList(box,"admin_students","students",[[X("الاسم","Name"),r=>esc(r.full_name)],[X("الكود","Code"),r=>`<span dir="ltr">${esc(r.student_code||"")}</span>`],[X("الموبايل","Mobile"),r=>`<span dir="ltr">${esc(r.phone||"")}</span>`],[X("التسجيل","Registered"),admDate]]);
+const admQuizzes=box=>admList(box,"admin_quizzes","quiz_results",[[X("التاريخ","Date"),admDate],[X("الدرجة","Score"),r=>`${r.score} / ${r.total}`],[X("النسبة","Percent"),r=>r.total?Math.round(r.score/r.total*100)+"%":""]]);
+const admEvals=box=>admList(box,"admin_evaluations","evaluations",[[X("التاريخ","Date"),admDate],[X("القسم","Department"),r=>esc(r.department)],[X("المشرف","Supervisor"),r=>esc(r.supervisor||"")],[X("الطالب","Student"),r=>esc((r.ratings||{}).student||"")],[X("الرقم الجامعي","Univ. no."),r=>`<span dir="ltr">${esc((r.ratings||{}).univ_no||"")}</span>`],[X("الفترة","Period"),r=>esc((r.ratings||{}).period||"")],[X("المتوسط","Average"),r=>{const a=((r.ratings||{}).scores||[]).filter(x=>x!=null);return a.length?(a.reduce((p,c)=>p+c,0)/a.length).toFixed(1):""}],[X("ملاحظات","Comments"),r=>esc(r.comments||"")]]);
+
+
+/* =================== FUTURISTIC FX + WELCOME SCREEN =================== */
+function fxStart(cv,o){ const x=cv.getContext("2d"),still=matchMedia("(prefers-reduced-motion:reduce)").matches,dpr=Math.min(2,devicePixelRatio||1);
+  let w=0,h=0,P=[],raf=0,on=false,mx=-999,my=-999;
+  const size=()=>{w=innerWidth;h=innerHeight;cv.width=w*dpr;cv.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.min(o.max,Math.round(w*h/o.density));P=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.8,c:Math.random()<.14}))};
+  const frame=()=>{ if(!on)return; x.clearRect(0,0,w,h); const col=o.color();
+    for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}
+    for(let i=0;i<P.length;i++){const a=P[i];
+      for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){x.strokeStyle=`rgba(${col},${(1-d/130)*o.alpha})`;x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+      const dm=Math.hypot(a.x-mx,a.y-my);if(dm<160){x.strokeStyle=`rgba(${col},${(1-dm/160)*o.alpha*1.8})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(mx,my);x.stroke()}
+      x.fillStyle=`rgba(${col},${Math.min(1,o.alpha*2.2)})`;
+      if(a.c){x.fillRect(a.x-4,a.y-1,8,2);x.fillRect(a.x-1,a.y-4,2,8)}else{x.beginPath();x.arc(a.x,a.y,a.r,0,6.3);x.fill()}}
+    if(!still)raf=requestAnimationFrame(frame)};
+  addEventListener("resize",()=>{if(on)size()});addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY});
+  document.addEventListener("visibilitychange",()=>{if(document.hidden)cancelAnimationFrame(raf);else if(on&&!still)raf=requestAnimationFrame(frame)});
+  return {start(){if(on)return;on=true;size();frame()},stop(){on=false;cancelAnimationFrame(raf)}};
+}
+const appFX=fxStart($("fx"),{max:48,density:30000,alpha:.13,color:()=>document.documentElement.dataset.theme==="dark"?"43,179,161":"15,118,110"});
+const wFX=fxStart($("wfx"),{max:110,density:12000,alpha:.28,color:()=>"46,230,197"});
+function showWelcome(){renderWelcome();$("shell").classList.add("hide");$("reg").classList.add("hide");$("welcome").classList.remove("hide");appFX.stop();wFX.start()}
+function hideWelcome(){$("welcome").classList.add("hide");wFX.stop();appFX.start()}
+function renderWelcome(){
+  const nm=profile&&profile.full_name,ico={
+    student:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/>',
+    staff:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M8.5 13l2.5 2.5 4.5-5"/>',
+    admin:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8 15v-3M12 15V9M16 15v-5"/>'};
+  const card=(k,t1,t2,t3)=>`<button class="wc" data-go="${k}"><span class="wi"><svg viewBox="0 0 24 24">${ico[k]}</svg></span><b>${t1}</b><span class="wd">${t2}</span>${t3?`<em>${t3}</em>`:""}<i class="wa">${lang==="ar"?"←":"→"}</i></button>`;
+  $("wlang").textContent=lang==="ar"?"English":"عربي";
+  $("wcontent").innerHTML=`<div class="lring"><img src="${LOGO}" alt=""></div>
+  <div class="kick">${X("المعهد الفني للتمريض · جامعة المنصورة","TECHNICAL INSTITUTE OF NURSING · MANSOURA UNIVERSITY")}</div>
+  <h1 class="wt">${t("app")}</h1>
+  <p class="ws">${X("منصة طلاب الامتياز · رحلتك التدريبية الذكية نحو المستقبل","Internship Students Platform · Your smart training journey into the future")}</p>
+  <div class="wcards">
+    ${card("student",X("دخول طالب","Student sign-in"),X("سجّل بياناتك مرة واحدة وابدأ التدريب: التوزيع، الحالات، الاختبارات والمساعد الذكي.","Register once and start training: rotations, cases, quizzes and the AI assistant."),nm?X("مرحبًا بعودتك، ","Welcome back, ")+esc(nm):"")}
+    ${card("staff",X("دخول مشرف امتياز","Internship supervisor"),X("الرد على رسائل الطلاب وتسجيل الزيارات الإشرافية.","Reply to students and log supervisory visits."))}
+    ${card("admin",X("دخول الأدمن","Admin"),X("لوحة التحكم: إحصائيات الطلاب والاختبارات والتقييمات والتقارير.","Dashboard: students, quizzes, evaluations and reports."))}
+  </div>
+  <div class="wfoot">${X("اختر طريقة الدخول للمتابعة","Choose how you want to sign in")}</div>`;
+}
+async function goWelcome(k){
+  if(k==="student"){await initP;hideWelcome();
+    if(!user){showReg();$("rM").innerHTML=`<div class="msg err">${X("فعّل Allow anonymous sign-ins في Supabase ← Authentication ← Sign In / Providers","Enable “Allow anonymous sign-ins” in Supabase → Authentication → Sign In / Providers")}</div>`;return}
+    profile?enter():showReg();return}
+  hideWelcome();$("reg").classList.add("hide");$("shell").classList.remove("hide");applyUI();
+  if(k==="staff"){helpTab=3;stTab=0;location.hash="#help"}else location.hash="#admin";
+  route();
+}
+$("wcontent").onclick=e=>{const b=e.target.closest("[data-go]");if(b)goWelcome(b.dataset.go)};
+$("wcontent").onpointermove=e=>{const c=e.target.closest(".wc");if(c){const r=c.getBoundingClientRect();c.style.setProperty("--x",e.clientX-r.left+"px");c.style.setProperty("--y",e.clientY-r.top+"px")}};
+$("wlang").onclick=()=>{lang=lang==="ar"?"en":"ar";store.set("lang",lang);applyUI();renderWelcome()};
+
+function showReg(){hideWelcome();$("shell").classList.add("hide");$("reg").classList.remove("hide");$("rM").innerHTML="";$("rn").value=profile?profile.full_name:"";$("rp").value=profile&&profile.phone||"";$("rc").value=profile&&profile.student_code||""}
+function enter(){hideWelcome();$("reg").classList.add("hide");$("shell").classList.remove("hide");applyUI();route();
   sb.rpc("register_visit").then(({data,error})=>{if(!error&&data!=null)$("vc").textContent=Number(data).toLocaleString(lang==="ar"?"ar-EG":"en-US")})}
 $("rlogo").src=LOGO;
+$("radmin").onclick=e=>{e.preventDefault();location.hash="#admin";$("reg").classList.add("hide");$("shell").classList.remove("hide");applyUI();route()};
 $("rB").onclick=async()=>{const full_name=$("rn").value.trim();
   if(!full_name){$("rM").innerHTML=`<div class="msg err">${X("اكتب اسمك بالكامل","Enter your full name")}</div>`;return}
   if(!user){$("rM").innerHTML=`<div class="msg err">${X("فعّل Allow anonymous sign-ins من Supabase","Enable “Allow anonymous sign-ins” in Supabase")}</div>`;return}
@@ -675,12 +863,12 @@ $("rB").onclick=async()=>{const full_name=$("rn").value.trim();
   $("rB").disabled=true;const {error}=await sb.from("profiles").upsert(row);$("rB").disabled=false;
   if(error){$("rM").innerHTML=`<div class="msg err">${X("تعذر الحفظ: ","Could not save: ")}${esc(error.message)}</div>`;return}
   profile=row;enter()};
-(async()=>{applyUI();
+const initP=(async()=>{applyUI();renderWelcome();wFX.start();
   let {data:{session}}=await sb.auth.getSession();
   if(!session){const r=await sb.auth.signInAnonymously();if(!r.error)session=r.data.session}
   user=session?session.user:null;
-  if(!user){showReg();$("rM").innerHTML=`<div class="msg err">${X("فعّل Allow anonymous sign-ins من Supabase ثم Authentication ثم Sign In / Providers","Enable “Allow anonymous sign-ins” in Supabase → Authentication → Sign In / Providers")}</div>`;return}
-  const {data}=await sb.from("profiles").select("*").eq("id",user.id).maybeSingle();profile=data;profile?enter():showReg()})();
+  if(!user){renderWelcome();$("rM").innerHTML=`<div class="msg err">${X("فعّل Allow anonymous sign-ins من Supabase ثم Authentication ثم Sign In / Providers","Enable “Allow anonymous sign-ins” in Supabase → Authentication → Sign In / Providers")}</div>`;return}
+  const {data}=await sb.from("profiles").select("*").eq("id",user.id).maybeSingle();profile=data;renderWelcome()})();
 
 </script>
 </body>
